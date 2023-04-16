@@ -2,7 +2,8 @@ import 'reflect-metadata';
 import express, { NextFunction, Request, Response } from 'express';
 import cors from 'cors';
 import routes from './routes';
-import AppError from '@shared/errors/AppErros';
+import AppError from '../errors/AppErros';
+import '../../shared/typeorm';
 
 const app = express();
 
@@ -27,11 +28,11 @@ app.use(
 
         return response.status(500).json({
             status: 'error',
-            message: 'Internal server error❌🔴',
+            message: 'Internal server error🔴',
         });
     },
 );
 
 app.listen(3333, () => {
-    console.log('server started on port 3333✅🟢');
+    console.log('server started on port 3333🟢');
 });
